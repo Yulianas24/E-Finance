@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>E-Finance</title>
+</head>
+<body>
+  <header>
+    <div class="jumbotron">
+      <h1 style="text-align: center;">Catat Pengeluaranmu Sekarang dengan <span style="color: #e3cc68;">E-Finance</span></h1>
+      <div class="jumbotron-box">
+          <div class="detail">
+            <p>Total Pemasukan</p>
+            <p id="detail_pemasukan">Rp. 0</p>
+          </div>
+          <div class="detail">
+            <p>Total Pengeluaran</p>
+            <p id="detail_pengeluaran">Rp. 0</p>
+          </div>
+          <div class="detail">
+            <p>Total Saldo</p>
+            <p id="detail_saldo">Rp. 0</p>
+          </div>
+      </div>
+    </div>
+    <!-- navbar -->
+    <nav>
+      <ul>
+        <li><a href="#" class="nav-link">Beranda</a></li>
+        <li><a href="#transaksi" class="nav-link">Transaksi</a></li>
+        <li><a href="#riwayat_pemasukan" class="nav-link">Pemasukan</a></li>
+        <li><a href="#riwayat_pengeluaran" class="nav-link">Pengeluaran</a></li>
+      </ul>
+    </nav>
+    <!-- end of navbar -->
+  </header>
+
+  <main>
+    <div id="content">
+      <article id="transaksi" style="justify-content: center;">
+        <h1>Tambah Transaksi</h1>
+        <div class="box">
+          <!-- form pemasukan -->
+          <form action="#" method="post" class="box-item" id="pemasukan">
+            <h3 style="text-align: center;">Pemasukan</h3>
+            <hr>
+            <div class="input-box">
+              <label for="tanggal">Tanggal</label>
+              <input type="date" name="tanggal_masuk" id="tanggal_masuk" required>
+            </div>
+            
+            <div class="input-box">
+              <label for="kategori">kategori</label>
+              <select name="kategori_masuk" id="kategori_masuk" required>
+                <option value="gaji">Gaji</option>
+                <option value="uang saku">Uang Saku</option>
+                <option value="lainnya">lainnya</option>
+              </select>            
+            </div>
+            <div class="input-box">
+              <label for="jumlah">Jumlah</label>
+              <input type="number" name="jumlah_masuk" id="jumlah_masuk" required>
+            </div>
+            <div class="input-box">
+              <label for="keterangan">keterangan</label>
+              <input type="text" name="keterangan_masuk" id="keterangan_masuk" required>
+            </div>
+            <hr>
+            <div class="input-box">
+              <button type="submit" class="btn" id="btn_pemasukan">TAMBAH</button>
+            </div>
+          </form>
+          <!-- end of form pemasukan -->
+          <!-- form pengeluaran -->
+          <form action="#" method="post" class="box-item" id="pengeluaran">
+            <h3 style="text-align: center;">Pengeluaran</h3>
+            <hr>
+            <div class="input-box">
+              <label for="tanggal">Tanggal</label>
+              <input type="date" name="tanggal_keluar" id="tanggal" required>
+            </div>
+            <div class="input-box">
+              <label for="kategori">kategori</label>
+              <select name="kategori_keluar" id="kategori" required>
+                <option value="belanja umum">Belanja Umum</option>
+                <option value="makanan">Makanan</option>
+                <option value="tagihan">Tagihan</option>
+                <option value="transportasi">Transportasi</option>
+                <option value="lainnya">Lainnya</option>
+              </select>            
+            </div>
+            <div class="input-box">
+              <label for="jumlah">Jumlah</label>
+              <input type="number" name="jumlah_keluar" id="jumlah" required>
+            </div>
+            <div class="input-box">
+              <label for="keterangan">keterangan</label>
+              <input type="text" name="keterangan_keluar" id="keterangan" required>
+            </div>
+            <hr>
+            <div class="input-box">
+              <button type="submit" class="btn">TAMBAH</button>
+            </div>
+          </form>
+          <!-- end of form pengeluaran -->
+        </div>
+      </article>
+      <article id="riwayat_pemasukan">
+        <h1>Riwayat Pemasukan</h1>
+        <br>
+        <table >
+            <thead>
+              <tr>
+                <th>Keterangan</th>
+                <th>Kategori</th>
+                <th>Tanggal</th>
+                <th>Jumlah</th>
+              </tr>
+            </thead>
+            <tbody id="table_pemasukan">
+
+            </tbody>
+        </table>
+      </article>
+      <article id="riwayat_pengeluaran">
+        <h1>Riwayat Pengeluaran</h1>
+        <br>
+        <table >
+            <thead>
+              <tr>
+                <th>Keterangan</th>
+                <th>Kategori</th>
+                <th>Tanggal</th>
+                <th>Jumlah</th>
+              </tr>
+            </thead>
+            <tbody id="table_pengeluaran">
+            </tbody>
+        </table>
+      </article>
+    </div>
+    <aside>
+      <div class="profile">
+        <h3>Data Diri</h3>
+        <hr>
+        <img src="assets/image/profil.jpg" alt="">
+        <br>
+        <b>Yulian Aznal Hakiky</b>
+        <i>(Mahasiswa)</i>
+        <br>
+        <i>Sisa Saldo:</i>
+        <div class="saldo">
+          <p id="sisa_saldo">Rp. 0</p>
+        </div>  
+      </div>
+      <button type="button" class="btn" id="btn_format" onclick="formatData()">Format Data</button>
+    </aside>
+  </main>
+  <footer>
+    <i>Created By @Yulian</i>
+  </footer>
+  <script src="assets/finance.js"></script>
+</body>
+</html>
